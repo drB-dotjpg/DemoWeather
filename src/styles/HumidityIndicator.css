@@ -1,0 +1,22 @@
+.humidity-indicator {
+    display: flex;
+    align-items: baseline;
+}
+
+.humidity-indicator > .icon-wrapper {
+    font-size: 5em;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.humidity-indicator > .icon-wrapper > .primary {
+    position: absolute;
+}
+
+.humidity-indicator > .icon-wrapper > .primary.white {
+    color: white;
+}

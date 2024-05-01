@@ -4,7 +4,7 @@ interface LocationProps {
     location: WeatherArea | undefined
 }
 
-export function Location({location}: LocationProps) {
+export default function Location({location}: LocationProps) {
 
     if (!location) {
         return null

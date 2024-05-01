@@ -1,10 +1,11 @@
 import './styles/App.css'
 import Header from './components/Header'
 import Search from './components/Search'
-import { Location } from './components/Location'
+import Location from './components/Location'
 import { Weather } from './types/Weather.type'
 import { useState } from 'react'
-import { CurrentCondition } from './components/CurrentCondition'
+import CurrentCondition from './components/CurrentCondition'
+import HourlyCondition from './components/HourlyCondition'
 import tempdata from '../tempdata.json';
 
 export default function App() {
@@ -34,7 +35,18 @@ export default function App() {
             />
             <CurrentCondition
                 condition={weather?.current_condition[0]}
+                dayStats={weather?.weather[0]}
             />
+            {
+                weather?.weather.map((day) => (
+                    day.hourly.map((hourWeather) => (
+                        <HourlyCondition
+                            date={day.date}
+                            hourlyWeather={hourWeather}
+                        />
+                    ))
+                ))
+            }
         </>
     )
 }

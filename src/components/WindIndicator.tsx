@@ -1,4 +1,5 @@
 import SouthIcon from '@mui/icons-material/South';
+import '../styles/WindIndicator.css';
 
 interface WindIndicatorProps {
     direction: number,
@@ -13,15 +14,15 @@ export function WindIndicator({direction, speed}: WindIndicatorProps) {
                 width: 'fit-content'
             }}>
             <SouthIcon 
-                fontSize='large'    
+                fontSize='inherit'
             />
             </div>
         );
     }
 
     return (
-        <div>
-            <div>{getWindDirectionIcon()}</div>
+        <div className='wind-indicator'>
+            <div className="icon-wrapper">{getWindDirectionIcon()}</div>
             <div>{speed} mph</div>
         </div>
     )
