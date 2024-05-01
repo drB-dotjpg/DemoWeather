@@ -15,6 +15,7 @@
 
 .humidity-indicator > .icon-wrapper > .primary {
     position: absolute;
+    color: blue
 }
 
 .humidity-indicator > .icon-wrapper > .primary.white {

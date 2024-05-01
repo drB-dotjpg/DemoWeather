@@ -33,7 +33,7 @@ const iconLookup = {
     "overcast": () => <CloudIcon fontSize='inherit' />,
     "clear": () => <WbSunnyIcon fontSize='inherit' />,
     "sunny": () => <WbSunnyIcon fontSize='inherit' />,
-    "thundery": () => <ThunderstormIcon fontSize='inherit' />,
+    "thunder": () => <ThunderstormIcon fontSize='inherit' />,
     "storm": () => <ThunderstormIcon fontSize='inherit' />,
     "snow": () => <SnowIcon fontSize='inherit' />,
     "rain": () => <WaterDropIcon fontSize='inherit' />,

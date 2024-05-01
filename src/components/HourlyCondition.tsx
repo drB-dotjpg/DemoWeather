@@ -1,5 +1,6 @@
 import { HourlyWeather } from "../types/HourlyWeather.type";
 import { HumidityIndicator } from "./HumidityIndicator";
+import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 import { WindIndicator } from "./WindIndicator";
 
@@ -24,8 +25,10 @@ export default function HourlyCondition({hourlyWeather, date}: HourlyConditionPr
                 weatherDesc={hourlyWeather.weatherDesc[0].value}
             />
             <div>{hourlyWeather.weatherDesc[0].value}</div>
-            <div>{hourlyWeather.tempF}°F</div>
-            <div>{hourlyWeather.tempC}°C</div>
+            <Temperature
+                tempC={parseInt(hourlyWeather.tempC)}
+                tempF={parseInt(hourlyWeather.tempF)}
+            />
             <HumidityIndicator
                 humidity={parseInt(hourlyWeather.humidity)}
             />

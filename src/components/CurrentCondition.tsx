@@ -1,6 +1,7 @@
 import { Weather } from "../types/Weather.type";
 import { WeatherCurrentCondition } from "../types/WeatherCurrentCondition.type";
 import { HumidityIndicator } from "./HumidityIndicator";
+import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 import { WindIndicator } from "./WindIndicator";
 
@@ -25,12 +26,24 @@ export default function CurrentCondition({condition, dayStats}: CurrentCondition
                 weatherDesc={condition.weatherDesc[0].value}
             />
             <div>{condition.weatherDesc[0].value}</div>
-            <div>{condition.temp_C}°C</div>
-            <div>{condition.temp_F}°F</div>
-            <div>Feels like {condition.FeelsLikeC}°C</div>
-            <div>Feels like {condition.FeelsLikeF}°F</div>
-            <div>Max Temp: {dayStats.maxtempF}°F</div>
-            <div>Min Temp: {dayStats.mintempF}°F</div>
+            <Temperature
+                tempC={parseInt(condition.temp_C)}
+                tempF={parseInt(condition.temp_F)}
+            />
+            <div>Feels like <Temperature
+                    tempC={parseInt(condition.FeelsLikeC)}
+                    tempF={parseInt(condition.FeelsLikeF)}
+                />
+            </div>
+            <div>Max Temp: <Temperature
+                tempC={parseInt(dayStats.maxtempC)}
+                tempF={parseInt(dayStats.maxtempF)}
+            /></div>
+            <div>Min Temp: <Temperature
+                    tempC={parseInt(dayStats.mintempC)}
+                    tempF={parseInt(dayStats.mintempF)}
+                />
+            </div>
             <HumidityIndicator 
                 humidity={parseInt(condition.humidity)}
             />

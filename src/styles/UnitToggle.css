@@ -1,0 +1,25 @@
+.unit-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    gap: .5em;
+}
+
+.unit-toggle > button {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.5em;
+    width: 4em;
+    height: 2em;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.unit-toggle > button > .inner-circle {
+    background-color: white;
+    width: 1em;
+    height: 1em;
+    border-radius: 100%;
+}
