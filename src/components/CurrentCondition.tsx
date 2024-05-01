@@ -16,20 +16,18 @@ export default function CurrentCondition({condition, dayStats}: CurrentCondition
     }
 
     return (
-        <fieldset style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1em'
-        }}>
+        <fieldset>
             <legend>Current Condition</legend>
             <WeatherIcon
                 weatherDesc={condition.weatherDesc[0].value}
             />
             <div>{condition.weatherDesc[0].value}</div>
-            <Temperature
-                tempC={parseInt(condition.temp_C)}
-                tempF={parseInt(condition.temp_F)}
-            />
+            <h1>
+                <Temperature
+                    tempC={parseInt(condition.temp_C)}
+                    tempF={parseInt(condition.temp_F)}
+                />
+            </h1>
             <div>Feels like <Temperature
                     tempC={parseInt(condition.FeelsLikeC)}
                     tempF={parseInt(condition.FeelsLikeF)}

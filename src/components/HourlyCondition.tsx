@@ -9,7 +9,7 @@ interface HourlyConditionProps {
     hourlyWeather: HourlyWeather;
 }
 
-export default function HourlyCondition({hourlyWeather, date}: HourlyConditionProps) {
+export default function HourlyCondition({ hourlyWeather, date }: HourlyConditionProps) {
     if (!hourlyWeather) {
         return null
     }
@@ -17,7 +17,7 @@ export default function HourlyCondition({hourlyWeather, date}: HourlyConditionPr
     if (!date) {
         date = 'Unknown Date';
     }
-    
+
     return (
         <fieldset>
             <legend>Weather at {date}, {hourlyWeather.time}</legend>
@@ -25,10 +25,12 @@ export default function HourlyCondition({hourlyWeather, date}: HourlyConditionPr
                 weatherDesc={hourlyWeather.weatherDesc[0].value}
             />
             <div>{hourlyWeather.weatherDesc[0].value}</div>
-            <Temperature
-                tempC={parseInt(hourlyWeather.tempC)}
-                tempF={parseInt(hourlyWeather.tempF)}
-            />
+            <h1>
+                <Temperature
+                    tempC={parseInt(hourlyWeather.tempC)}
+                    tempF={parseInt(hourlyWeather.tempF)}
+                />
+            </h1>
             <HumidityIndicator
                 humidity={parseInt(hourlyWeather.humidity)}
             />
