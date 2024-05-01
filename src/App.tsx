@@ -5,9 +5,10 @@ import { Location } from './components/Location'
 import { Weather } from './types/Weather.type'
 import { useState } from 'react'
 import { CurrentCondition } from './components/CurrentCondition'
+import tempdata from '../tempdata.json';
 
 export default function App() {
-    const [weather, setWeather] = useState<Weather>();
+    const [weather, setWeather] = useState<Weather>(tempdata as Weather);
     const [isSearching, setIsSearching] = useState<boolean>(false);
 
     const handleNewQuery = (query: string) => {
