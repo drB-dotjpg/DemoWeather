@@ -4,7 +4,6 @@ import Location from './components/Location'
 import { Weather } from './types/Weather.type'
 import { useState } from 'react'
 import CurrentCondition from './components/CurrentCondition'
-import HourlyCondition from './components/HourlyCondition'
 // import tempdata from '../tempdata.json';
 import { UnitContext } from './context/UnitContext'
 import Background from './components/Background'

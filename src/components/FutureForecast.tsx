@@ -13,7 +13,7 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
 
     function getDayButtons() {
         const days = weather.map((day, index) => {
-            let label = day.date;
+            const label = day.date;
             return (
                 <FutureForecastButton
                     key={index}
