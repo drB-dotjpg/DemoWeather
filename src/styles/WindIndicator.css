@@ -1,6 +1,6 @@
 .wind-indicator {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .wind-indicator > .icon-wrapper {

@@ -1,0 +1,12 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    --bg1: #7692FF;
+    --bg2: #ABD2FA;
+    background: linear-gradient(70deg, var(--bg1), var(--bg2));
+    filter: brightness(.85);
+    z-index: -10;
+}   

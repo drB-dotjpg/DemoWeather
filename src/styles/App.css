@@ -1,9 +1,16 @@
 body {
+    margin: 0;
+}
+
+.content-body {
     max-width: 80em;
+    min-height: calc(100dvh - 2rem);
     padding: 0 3em;
     margin: auto;
     color: white;
-    background-color: gray;
+    padding-bottom: 2em;
+    position: relative;
+    font-family: sans-serif;
 }
 
 .body-wrapper {
@@ -13,8 +20,6 @@ body {
 }
 
 .card-wrapper {
-    overflow: hidden;
-    border-radius: 2em;
     display: flex;
     flex-direction: column;
     gap: .25em;
@@ -24,4 +29,56 @@ body {
     background-color: #FFFFFFCC;
     color: black;
     padding: 1.5em;
+}
+
+.card-wrapper > .card:first-child {
+    border-radius: 2em 2em 0 0;
+}
+
+.card-wrapper > .card:last-child {
+    border-radius: 0 0 2em 2em;
+}
+
+.card-wrapper > .card:first-child:last-child {
+    border-radius: 2em;
+}
+
+@keyframes card-in {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: card-in cubic-bezier(0.015, 0.285, 0.205, 0.985) .6s forwards;
+}
+
+.fade-out {
+    animation: card-out .3s forwards;
+}
+
+@keyframes card-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    align-items: center;
+    height: 2rem;
 }

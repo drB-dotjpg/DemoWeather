@@ -23,7 +23,7 @@ export function WindIndicator({direction, speed}: WindIndicatorProps) {
     return (
         <div className='wind-indicator'>
             <div className="icon-wrapper">{getWindDirectionIcon()}</div>
-            <div>{speed} mph</div>
+            <div>Wind Speed: {speed} mph</div>
         </div>
     )
 }

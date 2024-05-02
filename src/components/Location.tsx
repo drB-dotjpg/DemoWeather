@@ -12,7 +12,7 @@ export default function Location({location}: LocationProps) {
 
     return (
         <>
-            <div>{location.areaName[0].value}</div>
+            <h2>{location.areaName[0].value}</h2>
             <div>{location.region[0].value}</div>
             <div>{location.country[0].value}</div>
         </>

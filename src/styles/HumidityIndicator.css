@@ -1,6 +1,6 @@
 .humidity-indicator {
     display: flex;
-    align-items: baseline;
+    align-items: center;
 }
 
 .humidity-indicator > .icon-wrapper {
