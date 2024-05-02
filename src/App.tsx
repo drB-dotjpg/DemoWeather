@@ -8,6 +8,7 @@ import HourlyCondition from './components/HourlyCondition'
 // import tempdata from '../tempdata.json';
 import { UnitContext } from './context/UnitContext'
 import Background from './components/Background'
+import FutureForecast from './components/FutureForecast'
 
 export default function App() {
     // const [weather, setWeather] = useState<Weather | Error>(tempdata as Weather);
@@ -84,23 +85,9 @@ export default function App() {
                         />
                     </div>
                 </div>
-                <div className='card-wrapper'>
-                    <div className='card'>
-                        <h2>Hourly Forecast: Work in progress</h2 >
-                    </div>
-                    {
-                        weather?.weather.map((day) => (
-                            day.hourly.map((hourWeather, key) => (
-                                <div className="card" key={key}>
-                                    <HourlyCondition
-                                        date={day.date}
-                                        hourlyWeather={hourWeather}
-                                    />
-                                </div>
-                            ))
-                        ))
-                    }
-                </div>
+                <FutureForecast
+                    weather={weather?.weather}
+                />
             </div>
         );
     }

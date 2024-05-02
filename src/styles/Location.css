@@ -1,0 +1,12 @@
+.location-wrapper {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    font-size: 1.3em;
+}
+
+.location-wrapper > .main {
+    font-weight: 700;
+    font-size: 2em;
+}

@@ -12,7 +12,7 @@ export default function Header({changeWeather, changeUnitToggle, isSearching}: H
     
     function getSearchBar() {
         if (isSearching) {
-            return (<div>Searching...</div>);
+            return (<div><strong>Searching...</strong></div>);
         }
         return (
             <Search

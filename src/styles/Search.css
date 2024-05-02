@@ -1,5 +1,14 @@
 .search-input {
-    width: 100%;
-    padding: 0;
+    width: calc(100% - 2em);
+    height: 1.5em;
+    padding: 0 1em;
     font-size: inherit;
+    font-family: inherit;
+    border-radius: .75em;
+    border: none;
+}
+
+.search-input:focus {
+    outline: none;
+    filter: drop-shadow(0 3px 5px #00000044);
 }

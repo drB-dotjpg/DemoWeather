@@ -1,4 +1,5 @@
 import { WeatherArea } from "../types/WeatherArea.type"
+import "../styles/Location.css"
 
 interface LocationProps {
     location: WeatherArea | undefined
@@ -11,10 +12,9 @@ export default function Location({location}: LocationProps) {
     }
 
     return (
-        <>
-            <h2>{location.areaName[0].value}</h2>
-            <div>{location.region[0].value}</div>
+        <div className="location-wrapper">
+            <div className="main">Weather in {location.areaName[0].value}, {location.region[0].value}</div>
             <div>{location.country[0].value}</div>
-        </>
+        </div>
     )
 }
