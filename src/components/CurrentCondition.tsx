@@ -5,16 +5,14 @@ import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 import { WindIndicator } from "./WindIndicator";
 import "../styles/CurrentCondition.css";
-import { WeatherArea } from "../types/WeatherArea.type";
 import TempStats from "./TempStats";
 
 interface CurrentConditionProps {
     condition: WeatherCurrentCondition | undefined,
     dayStats: Weather['weather'][0];
-    area: WeatherArea;
 }
 
-export default function CurrentCondition({ condition, dayStats, area }: CurrentConditionProps) {
+export default function CurrentCondition({ condition, dayStats }: CurrentConditionProps) {
     if (!condition) {
         return null
     }
@@ -44,7 +42,6 @@ export default function CurrentCondition({ condition, dayStats, area }: CurrentC
                     feelsLikeF={condition.FeelsLikeF}
                     feelsLikeC={condition.FeelsLikeC}
                     tempF={condition.temp_F}
-                    tempC={condition.temp_C}
                 />
                 <div className="flex-center">
                     <HumidityIndicator

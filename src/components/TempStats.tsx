@@ -9,10 +9,9 @@ interface TempStatsProps {
     feelsLikeF: string;
     feelsLikeC: string;
     tempF: string;
-    tempC: string;
 }
 
-export default function TempStats({ maxTempF, maxTempC, minTempF, minTempC, feelsLikeF, feelsLikeC, tempF, tempC }: TempStatsProps) {
+export default function TempStats({ maxTempF, maxTempC, minTempF, minTempC, feelsLikeF, feelsLikeC, tempF }: TempStatsProps) {
 
     function getMeterOffset() {
         const maxTemp = parseInt(maxTempF);
