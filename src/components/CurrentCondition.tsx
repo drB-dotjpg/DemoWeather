@@ -5,54 +5,59 @@ import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 import { WindIndicator } from "./WindIndicator";
 import "../styles/CurrentCondition.css";
+import { WeatherArea } from "../types/WeatherArea.type";
+import TempStats from "./TempStats";
 
 interface CurrentConditionProps {
     condition: WeatherCurrentCondition | undefined,
     dayStats: Weather['weather'][0];
+    area: WeatherArea;
 }
 
-export default function CurrentCondition({ condition, dayStats }: CurrentConditionProps) {
+export default function CurrentCondition({ condition, dayStats, area }: CurrentConditionProps) {
     if (!condition) {
         return null
     }
 
     return (
         <div className="current-condition">
-            <h1>
-                <Temperature
-                    tempC={parseInt(condition.temp_C)}
-                    tempF={parseInt(condition.temp_F)}
-                />
-            </h1>
-            <div>
-                <WeatherIcon
-                    weatherDesc={condition.weatherDesc[0].value}
-                />
-                <div>{condition.weatherDesc[0].value}</div>
-            </div>
-            <div>
-                <div>Feels like <Temperature
-                    tempC={parseInt(condition.FeelsLikeC)}
-                    tempF={parseInt(condition.FeelsLikeF)}
-                />
+            <div className="boxed-row-wrapper">
+                <div className="temp flex-center">
+                    <Temperature
+                        tempC={parseInt(condition.temp_C)}
+                        tempF={parseInt(condition.temp_F)}
+                    />
                 </div>
-                <div>Max Temp: <Temperature
-                    tempC={parseInt(dayStats.maxtempC)}
-                    tempF={parseInt(dayStats.maxtempF)}
-                /></div>
-                <div>Min Temp: <Temperature
-                    tempC={parseInt(dayStats.mintempC)}
-                    tempF={parseInt(dayStats.mintempF)}
-                />
+                <div className="flex-center">
+                    <WeatherIcon
+                        weatherDesc={condition.weatherDesc[0].value}
+                    />
+                    <div>{condition.weatherDesc[0].value}</div>
                 </div>
             </div>
-            <HumidityIndicator
-                humidity={parseInt(condition.humidity)}
-            />
-            <WindIndicator
-                direction={parseInt(condition.winddirDegree)}
-                speed={parseInt(condition.windspeedMiles)}
-            />
+            <div className="boxed-row-wrapper">
+                <TempStats
+                    maxTempF={dayStats.maxtempF}
+                    maxTempC={dayStats.maxtempC}
+                    minTempF={dayStats.mintempF}
+                    minTempC={dayStats.mintempC}
+                    feelsLikeF={condition.FeelsLikeF}
+                    feelsLikeC={condition.FeelsLikeC}
+                    tempF={condition.temp_F}
+                    tempC={condition.temp_C}
+                />
+                <div className="flex-center">
+                    <HumidityIndicator
+                        humidity={parseInt(condition.humidity)}
+                    />
+                </div>
+                <div className="flex-center">
+                    <WindIndicator
+                        direction={parseInt(condition.winddirDegree)}
+                        speed={parseInt(condition.windspeedMiles)}
+                    />
+                </div>
+            </div>
         </div>
     )
 }

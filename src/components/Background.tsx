@@ -30,7 +30,7 @@ export default function Background({ weatherDesc }: BackgroundProps) {
     useEffect(() => {
         const bg = getBackground();
         gsap.to(".background", {
-            duration: 1,
+            duration: 2,
             "--bg1": `#${bg.bg1}`,
             "--bg2": `#${bg.bg2}`
         });

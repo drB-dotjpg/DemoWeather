@@ -1,0 +1,37 @@
+.temp-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.temp-stats > .num-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25em;
+}
+
+.temp-stats > .meter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.temp-stats > .meter-wrapper > .meter {
+    width: 1.6em;
+    height: 5em;
+    background: linear-gradient(to top, #ABD2FA, #F1FEC6);
+    border: .2rem solid #000000;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.meter > .indicator {
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 100%;
+    background-color: black;
+    margin-top: auto;
+}

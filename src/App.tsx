@@ -21,7 +21,7 @@ export default function App() {
         fetch(`https://wttr.in/${query}?format=j1`)
             .then(res => {
                 if (!res.ok) {
-                    const e = new Error('Failed to fetch weather data');
+                    const e = new Error(res.statusText);
                     setWeather(e);
                     setIsSearching(false);
                     fadeCardsIn();

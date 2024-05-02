@@ -1,6 +1,31 @@
 .current-condition {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.current-condition .temp {
+    font-size: 5em;
+    font-weight: 700;
+}
+
+.current-condition .boxed-row-wrapper {
+    display: flex;
     justify-content: space-around;
+    align-items: stretch;
+    gap: 1rem;
+}
+
+.current-condition .boxed-row-wrapper > * {
+    width: 100%;
+    min-height: 7rem;
+    background: #ffffffBB;
+    border-radius: 1rem;
+}
+
+.current-condition .boxed-row-wrapper > .flex-center {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
