@@ -19,8 +19,8 @@ export default function HourlyCondition({ hourlyWeather, date }: HourlyCondition
     }
 
     return (
-        <fieldset>
-            <legend>Weather at {date}, {hourlyWeather.time}</legend>
+        <>
+            <div>Weather at {date}, {hourlyWeather.time}</div>
             <WeatherIcon
                 weatherDesc={hourlyWeather.weatherDesc[0].value}
             />
@@ -38,6 +38,6 @@ export default function HourlyCondition({ hourlyWeather, date }: HourlyCondition
                 direction={parseInt(hourlyWeather.winddirDegree)}
                 speed={parseInt(hourlyWeather.windspeedMiles)}
             />
-        </fieldset>
+        </>
     )
 }

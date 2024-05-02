@@ -4,7 +4,6 @@ import { UnitContext } from "../context/UnitContext";
 
 interface UnitToggleProps {
     onToggle: () => void;
-    unit: string;
 }
 
 export default function UnitToggle({onToggle}: UnitToggleProps) {

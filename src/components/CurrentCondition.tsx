@@ -16,8 +16,7 @@ export default function CurrentCondition({condition, dayStats}: CurrentCondition
     }
 
     return (
-        <fieldset>
-            <legend>Current Condition</legend>
+        <>
             <WeatherIcon
                 weatherDesc={condition.weatherDesc[0].value}
             />
@@ -49,6 +48,6 @@ export default function CurrentCondition({condition, dayStats}: CurrentCondition
                 direction={parseInt(condition.winddirDegree)}
                 speed={parseInt(condition.windspeedMiles)}
             />
-        </fieldset>
+        </>
     )
 }

@@ -11,11 +11,10 @@ export default function Location({location}: LocationProps) {
     }
 
     return (
-        <fieldset>
-            <legend>Query Location</legend>
+        <>
             <div>{location.areaName[0].value}</div>
             <div>{location.region[0].value}</div>
             <div>{location.country[0].value}</div>
-        </fieldset>
+        </>
     )
 }

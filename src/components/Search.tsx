@@ -1,3 +1,5 @@
+import "../styles/Search.css";
+
 interface SearchProps {
     changeWeather: any
 }
@@ -12,7 +14,7 @@ export default function Search({ changeWeather }: SearchProps){
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="search" id="search-box" type="text" placeholder="Enter city name" autoComplete="off"/>
+            <input className="search-input" name="search" id="search-box" type="text" placeholder="Enter location name" autoComplete="off"/>
         </form>
     )
 }
