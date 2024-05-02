@@ -4,6 +4,7 @@ import CloudIcon from '@mui/icons-material/Cloud';
 import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import SnowIcon from '@mui/icons-material/AcUnit';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import FogIcon from '@mui/icons-material/Water';
 
 interface WeatherIconProps {
     weatherDesc: string
@@ -37,4 +38,6 @@ const iconLookup = {
     "storm": () => <ThunderstormIcon fontSize='inherit' />,
     "snow": () => <SnowIcon fontSize='inherit' />,
     "rain": () => <WaterDropIcon fontSize='inherit' />,
+    "mist": () => <FogIcon fontSize='inherit' />,
+    "fog": () => <FogIcon fontSize='inherit' />,
 }

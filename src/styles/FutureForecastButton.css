@@ -15,4 +15,5 @@
 .future-forecast-button.active {
     background: linear-gradient(to right, #FFFFFFCC, #ABD2FA 200%);
     transition: none;
+    text-decoration: underline;
 }
