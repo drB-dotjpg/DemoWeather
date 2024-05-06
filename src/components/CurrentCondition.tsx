@@ -19,14 +19,14 @@ export default function CurrentCondition({ condition, dayStats }: CurrentConditi
 
     return (
         <div className="current-condition">
-            <div className="boxed-row-wrapper">
+            <div className="boxed-row-wrapper larger">
                 <div className="temp flex-center">
                     <Temperature
                         tempC={parseInt(condition.temp_C)}
                         tempF={parseInt(condition.temp_F)}
                     />
                 </div>
-                <div className="flex-center">
+                <div className="flex-center weather-desc">
                     <WeatherIcon
                         weatherDesc={condition.weatherDesc[0].value}
                     />
@@ -34,21 +34,23 @@ export default function CurrentCondition({ condition, dayStats }: CurrentConditi
                 </div>
             </div>
             <div className="boxed-row-wrapper">
-                <TempStats
-                    maxTempF={dayStats.maxtempF}
-                    maxTempC={dayStats.maxtempC}
-                    minTempF={dayStats.mintempF}
-                    minTempC={dayStats.mintempC}
-                    feelsLikeF={condition.FeelsLikeF}
-                    feelsLikeC={condition.FeelsLikeC}
-                    tempF={condition.temp_F}
-                />
-                <div className="flex-center">
+                <div className="flex-center bottom-row-item">
+                    <TempStats
+                        maxTempF={dayStats.maxtempF}
+                        maxTempC={dayStats.maxtempC}
+                        minTempF={dayStats.mintempF}
+                        minTempC={dayStats.mintempC}
+                        feelsLikeF={condition.FeelsLikeF}
+                        feelsLikeC={condition.FeelsLikeC}
+                        tempF={condition.temp_F}
+                    />
+                </div>
+                <div className="flex-center bottom-row-item">
                     <HumidityIndicator
                         humidity={parseInt(condition.humidity)}
                     />
                 </div>
-                <div className="flex-center">
+                <div className="flex-center bottom-row-item">
                     <WindIndicator
                         direction={parseInt(condition.winddirDegree)}
                         speed={parseInt(condition.windspeedMiles)}

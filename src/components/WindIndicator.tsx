@@ -11,7 +11,8 @@ export function WindIndicator({direction, speed}: WindIndicatorProps) {
         return (
             <div style={{
                 transform: `rotate(${direction}deg)`,
-                width: 'fit-content'
+                width: "1em",
+                height: "1em"
             }}>
             <SouthIcon 
                 fontSize='inherit'
@@ -23,7 +24,7 @@ export function WindIndicator({direction, speed}: WindIndicatorProps) {
     return (
         <div className='wind-indicator'>
             <div className="icon-wrapper">{getWindDirectionIcon()}</div>
-            <div>Wind Speed: {speed} mph</div>
+            <div>Wind Speed:<br/><strong>{speed} mph</strong></div>
         </div>
     )
 }

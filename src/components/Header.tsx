@@ -9,23 +9,14 @@ interface HeaderProps {
 }
 
 export default function Header({changeWeather, changeUnitToggle, isSearching}: HeaderProps) {
-    
-    function getSearchBar() {
-        if (isSearching) {
-            return (<div><strong>Searching...</strong></div>);
-        }
-        return (
-            <Search
-                changeWeather={changeWeather}
-            />
-        );
-    }
-
     return (
         <header className="header">
             <div>DemoWeather</div>
             <div className="search-bar">
-                {getSearchBar()}
+                <Search
+                    changeWeather={changeWeather}
+                    loading={isSearching}
+                />
             </div>
             <UnitToggle
                 onToggle={changeUnitToggle}

@@ -45,14 +45,13 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
 
     return (
         <>
-            <div className="day-selector-wrapper card">
-                <div className="label">Future Forecast</div>
-                {getDayButtons()}
-            </div>
-            <div className="future-forecast">
-                <div className="card-wrapper">
-                    {getWeatherCards()}
+
+            <div className="future-forecast card-wrapper">
+                <div className="day-selector-wrapper card">
+                    <div className="label">Future Forecast</div>
+                    <div>{getDayButtons()}</div>
                 </div>
+                {getWeatherCards()}
             </div>
         </>
     );

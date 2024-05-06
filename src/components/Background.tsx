@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import "../styles/Background.css";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface BackgroundProps {
     weatherDesc: string | undefined;
@@ -27,7 +27,7 @@ export default function Background({ weatherDesc }: BackgroundProps) {
         return bgLookup["clear"];
     }
 
-    useEffect(() => {
+    useGSAP(() => {
         const bg = getBackground();
         gsap.to(".background", {
             duration: 2,

@@ -28,7 +28,7 @@ export function HumidityIndicator({humidity}: HumidityIndicatorProps) {
                     fontSize='inherit'       
                 />
             </div>
-            <div>Humidity: {humidity}%</div>
+            <div>Humidity:<br/><strong>{humidity}%</strong></div>
         </div>
     )
 }

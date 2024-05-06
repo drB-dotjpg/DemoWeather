@@ -71,13 +71,13 @@ export default function App() {
         }
         return (
             <div className='body-wrapper'>
-                <div className="card-wrapper">
+                <div className="card-wrapper current-weather">
                     <div className='card'>
                         <Location
                             location={weather?.nearest_area[0]}
                         />
                     </div>
-                    <div className='card'>
+                    <div className='card fill-height'>
                         <CurrentCondition
                             condition={weather?.current_condition[0]}
                             dayStats={weather?.weather[0]}
@@ -115,8 +115,9 @@ export default function App() {
                     {getPageContent()}
                 </UnitContext.Provider>
                 <footer className='footer'>
+                    <div>DemoWeather: Basic weather app to practice UI development</div>
                     <div>Created By Derek Bond</div>
-                    <div>Site created with React and Vite</div>
+                    <div>Created with React and Vite</div>
                     <div>Weather data from <a href="https://wttr.in/">wttr.in</a></div>
                 </footer>
             </div>

@@ -1,13 +1,27 @@
 .current-condition {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     justify-content: center;
     gap: 1rem;
+    height: 100%;
+    font-size: 1.3em;
 }
 
 .current-condition .temp {
-    font-size: 5em;
+    font-size: 10em;
     font-weight: 700;
+}
+
+.current-condition .weather-desc {
+    flex-direction: column;
+    gap: .5em;
+    font-size: 2.6em;
+    font-weight: 700;
+}
+
+.current-condition .bottom-row-item {
+    font-size: 1.5em;
 }
 
 .current-condition .boxed-row-wrapper {
@@ -15,6 +29,11 @@
     justify-content: space-around;
     align-items: stretch;
     gap: 1rem;
+    flex: 1;
+}
+
+.current-condition .boxed-row-wrapper.larger {
+    flex: 1.5;
 }
 
 .current-condition .boxed-row-wrapper > * {
@@ -28,4 +47,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 150rem) {
+    .current-condition {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 120rem) {
+    .current-condition {
+        font-size: .85em;
+    }
+}
+
+@media only screen and (max-width: 100rem) {
+    .current-condition {
+        height: auto;
+    }
+
+    .current-condition .boxed-row-wrapper > * {
+        padding: 2rem 0;
+    }
+}
+
+@media only screen and (max-width: 50rem) {
+    .current-condition { 
+        font-size: .8rem;
+    }
+
+    .current-condition .boxed-row-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .current-condition .boxed-row-wrapper > * {
+        padding: .5rem 0;
+    }
 }

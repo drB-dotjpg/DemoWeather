@@ -1,19 +1,21 @@
 .future-forecast-button {
-    background-color: #FFFFFFCC;
     color: black;
     border: none;
     cursor: pointer;
-    padding: 1em;
+    padding: .75em;
+    margin: .25em;
     font-size: 1.5em;
-    transition: background-color .2s;
+    transition: background-color .1s, filter .1s;
+    background-color: transparent;
+    border-radius: 2rem;
 }
 
 .future-forecast-button:hover {
     background-color: white;
+    filter: drop-shadow(0 3px 5px #00000044);
 }
 
 .future-forecast-button.active {
-    background: linear-gradient(to right, #FFFFFFCC, #ABD2FA 200%);
-    transition: none;
-    text-decoration: underline;
+    background: linear-gradient(to bottom, white, #ABD2FA 150%);
+    filter: drop-shadow(0 3px 5px #00000044);
 }

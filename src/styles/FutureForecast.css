@@ -1,21 +1,28 @@
-.day-selector-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: .25rem;
-    overflow: hidden;
+.future-forecast {
+    min-width: fit-content; 
+    height: calc(100dvh - 14rem);
+    overflow-y: auto;
+    flex: 1;
     border-radius: 2rem;
-    width: fit-content;
-    margin: auto;
 }
 
-.day-selector-wrapper > .label {
+.future-forecast .day-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .25rem;
+    height: fit-content;
+}
+
+.future-forecast .day-selector-wrapper > .label {
     font-weight: 700;
     color: black;
     font-size: 2em;
-    background-color: #FFFFFFCC;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 1em;
+    white-space: nowrap;
 }

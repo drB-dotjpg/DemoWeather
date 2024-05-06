@@ -3,6 +3,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 80rem;
+    margin: auto;
     gap: 1.5em;
     font-size: 1.5em;
 }
@@ -21,4 +23,12 @@
 .no-weather {
     height: calc(100dvh - 2rem);
     font-size: 1.6em;
+}
+
+@media only screen and (max-width: 50rem) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+    }
 }
