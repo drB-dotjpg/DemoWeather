@@ -1,6 +1,7 @@
 import "../styles/Background.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 interface BackgroundProps {
     weatherDesc: string | undefined;
@@ -17,27 +18,32 @@ interface BackgroundLookup {
 
 export default function Background({ weatherDesc }: BackgroundProps) {
 
+    const background = useRef() as React.MutableRefObject<HTMLDivElement>;
+
     function getBackground() {
+        console.log(weatherDesc);
         const lookup = weatherDesc?.toLowerCase() ?? "clear";
         for (const [key, value] of Object.entries(bgLookup)) {
             if (lookup.includes(key)) {
                 return value;
             }
         }
-        return bgLookup["clear"];
+        return bgLookup[lookup];
     }
 
     useGSAP(() => {
         const bg = getBackground();
-        gsap.to(".background", {
+        gsap.to(background.current, {
             duration: 2,
             "--bg1": `#${bg.bg1}`,
             "--bg2": `#${bg.bg2}`
         });
+    }, {
+        dependencies: [weatherDesc]
     });
 
     return (
-        <div className='background'></div>
+        <div className='background' ref={background}></div>
     );
 }
 
