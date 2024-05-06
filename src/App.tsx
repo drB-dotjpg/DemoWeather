@@ -4,14 +4,14 @@ import Location from './components/Location'
 import { Weather } from './types/Weather.type'
 import { useState } from 'react'
 import CurrentCondition from './components/CurrentCondition'
-import tempdata from '../tempdata.json';
+// import tempdata from '../tempdata.json';
 import { UnitContext } from './context/UnitContext'
 import Background from './components/Background'
 import FutureForecast from './components/FutureForecast'
 
 export default function App() {
-    const [weather, setWeather] = useState<Weather | Error>(tempdata as Weather);
-    // const [weather, setWeather] = useState<Weather | Error>();
+    // const [weather, setWeather] = useState<Weather | Error>(tempdata as Weather);
+    const [weather, setWeather] = useState<Weather | Error>();
     const [isSearching, setIsSearching] = useState<boolean>(false);
     const [unit, setUnit] = useState<string>('f');
 
