@@ -1,8 +1,10 @@
 import { Weather } from "../types/Weather.type";
 import "../styles/FutureForecast.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import HourlyCondition from "./HourlyCondition";
 import FutureForecastButton from "./FutureForecastButton";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface FutureForecastProps {
     weather: Weather['weather'];
@@ -10,6 +12,35 @@ interface FutureForecastProps {
 
 export default function FutureForecast({ weather }: FutureForecastProps) {
     const [dayIndex, setDayIndex] = useState<number>(0);
+    const [drawDayIndex, setDrawDayIndex] = useState<number>(0);
+    const elementRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+    useGSAP(() => {
+        if (dayIndex === drawDayIndex) return;
+        const tl = gsap.timeline();
+        tl.fromTo(elementRef.current, {
+            x: 0
+        }, {
+            duration: .3,
+            opacity: 0,
+            ease: 'power2.out',
+            x: dayIndex < drawDayIndex ? 50 : -50,
+            onComplete: () => {
+                setDrawDayIndex(dayIndex);
+            }
+        })
+        .fromTo(elementRef.current, {
+            x: dayIndex < drawDayIndex ? -50 : 50
+        }, {
+            x: 0,
+            duration: .3,
+            opacity: 1,
+            ease: 'power2.out'
+        }, '+=.1');
+    }, {
+        dependencies: [dayIndex],
+        scope: elementRef.current
+    })
 
     function getDayButtons() {
         const days = weather.map((day, index) => {
@@ -19,7 +50,7 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
                     key={index}
                     onClick={() => setDayIndex(index)}
                     label={label}
-                    active={index === dayIndex}
+                    active={index === drawDayIndex}
                 />
             );
         });
@@ -28,7 +59,7 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
     }
 
     function getWeatherCards() {
-        const day = weather[dayIndex];
+        const day = weather[drawDayIndex];
         const cards = day.hourly.map((hour, index) => {
             return (
                 <div className="card" key={index}>
@@ -45,8 +76,7 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
 
     return (
         <>
-
-            <div className="future-forecast card-wrapper">
+            <div className="future-forecast card-wrapper" ref={elementRef}>
                 <div className="day-selector-wrapper card">
                     <div className="label">Future Forecast</div>
                     <div>{getDayButtons()}</div>

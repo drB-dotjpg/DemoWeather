@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { HourlyWeather } from "../types/HourlyWeather.type";
 import { HumidityIndicator } from "./HumidityIndicator";
 import Temperature from "./Temperature";
 import WeatherIcon from "./WeatherIcon";
 import { WindIndicator } from "./WindIndicator";
 import "../styles/HourlyCondition.css";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface HourlyConditionProps {
     hourlyWeather: HourlyWeather;
@@ -13,6 +15,48 @@ interface HourlyConditionProps {
 
 export default function HourlyCondition({ hourlyWeather, date }: HourlyConditionProps) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [drawExpanded, setDrawExpanded] = useState(false);
+    const card = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+    useGSAP(() => {
+        if (isExpanded) {
+            const tl = gsap.timeline();
+            tl.to(card.current, {
+                duration: 0.1,
+                height: card.current.scrollHeight + "px",
+                opacity: 0,
+                ease: 'power2.out',
+                onComplete: () => {
+                    setDrawExpanded(true);
+                }
+            })
+            .to(card.current, {
+                duration: 0.35,
+                height: 'auto',
+                opacity: 1,
+                ease: 'power2.inOut'
+            }, "+=.1")
+        } else if (!isExpanded && drawExpanded) {
+            const tl = gsap.timeline();
+            tl.to(card.current, {
+                duration: 0.1,
+                height: card.current.scrollHeight + "px",
+                opacity: 0,
+                ease: 'power2.out',
+                onComplete: () => {
+                    setDrawExpanded(false);
+                }
+            })
+            .to(card.current, {
+                duration: 0.35,
+                height: 'auto',
+                opacity: 1,
+                ease: 'power2.inOut'
+            }, "+=.1")
+        }
+    }, {
+        dependencies: [isExpanded]
+    })
 
     function getTime(): string {
         let time = hourlyWeather.time;
@@ -35,9 +79,9 @@ export default function HourlyCondition({ hourlyWeather, date }: HourlyCondition
         return null
     }
 
-    if (!isExpanded) {
+    if (!drawExpanded) {
         return (
-            <div className="hourly-condition">
+            <div className="hourly-condition" ref={card}>
                 <div className="boxed-row-wrapper">
                     <div className="time flex-center">
                         {getTime()}
@@ -61,7 +105,7 @@ export default function HourlyCondition({ hourlyWeather, date }: HourlyCondition
     }
 
     return (
-        <div className="hourly-condition">
+        <div className="hourly-condition" ref={card}>
             <div className="boxed-row-wrapper expanded">
                 <div className="time flex-center">
                     {getTime()}
