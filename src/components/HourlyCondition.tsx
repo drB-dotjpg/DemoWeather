@@ -120,7 +120,7 @@ export default function HourlyCondition({ hourlyWeather, date }: HourlyCondition
                     <WeatherIcon
                         weatherDesc={hourlyWeather.weatherDesc[0].value}
                     />
-                    <div>{hourlyWeather.weatherDesc[0].value}</div>
+                    <div className="icon-text">{hourlyWeather.weatherDesc[0].value}</div>
                 </div>
             </div>
             <div className="boxed-row-wrapper expanded">

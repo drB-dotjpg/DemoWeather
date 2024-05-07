@@ -12,14 +12,14 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: .25rem;
+    gap: 1rem;
     height: fit-content;
 }
 
 .future-forecast .day-selector-wrapper > .label {
     font-weight: 700;
     color: black;
-    font-size: 2em;
+    font-size: 2.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,5 +30,11 @@
 @media only screen and (max-width: 100rem) {
     .future-forecast {
         overflow-y: auto;
+    }
+}
+
+@media only screen and (max-width: 30rem) {
+    .future-forecast .day-selector-wrapper > .label {
+        font-size: 2em;
     }
 }

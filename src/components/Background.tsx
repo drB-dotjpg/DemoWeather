@@ -21,7 +21,6 @@ export default function Background({ weatherDesc }: BackgroundProps) {
     const background = useRef() as React.MutableRefObject<HTMLDivElement>;
 
     function getBackground() {
-        console.log(weatherDesc);
         const lookup = weatherDesc?.toLowerCase() ?? "clear";
         for (const [key, value] of Object.entries(bgLookup)) {
             if (lookup.includes(key)) {

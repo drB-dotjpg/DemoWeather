@@ -2,12 +2,14 @@ import './styles/App.css'
 import Header from './components/Header'
 import Location from './components/Location'
 import { Weather } from './types/Weather.type'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import CurrentCondition from './components/CurrentCondition'
 // import tempdata from '../tempdata.json';
 import { UnitContext } from './context/UnitContext'
 import Background from './components/Background'
 import FutureForecast from './components/FutureForecast'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
 
 export default function App() {
     // const [weather, setWeather] = useState<Weather | Error>(tempdata as Weather);
@@ -15,7 +17,11 @@ export default function App() {
     const [isSearching, setIsSearching] = useState<boolean>(false);
     const [unit, setUnit] = useState<string>('f');
 
-    const handleNewQuery = (query: string) => {
+    const bodyRef = useRef() as React.MutableRefObject<HTMLDivElement>;
+
+    const { contextSafe } = useGSAP()
+
+    function handleNewQuery(query: string) {
         setIsSearching(true);
         fadeCardsOut();
         fetch(`https://wttr.in/${query}?format=j1`)
@@ -36,24 +42,30 @@ export default function App() {
             })
     }
 
-    const changeUnitToggle = () => {
+    const fadeCardsOut = contextSafe(() => {
+        gsap.to('.card', {
+            duration: .2,
+            opacity: 0,
+            y: 50,
+            ease: 'power2.out'
+        })
+    });
+
+    const fadeCardsIn = contextSafe(() => {
+        gsap.fromTo('.card', {
+            opacity: 0,
+            y: 100
+        }, {
+            duration: .5,
+            opacity: 1,
+            y: 0,
+            stagger: .07,
+            ease: 'power2.out'
+        })
+    });
+
+    function changeUnitToggle() {
         setUnit(unit === 'f' ? 'c' : 'f');
-    }
-
-    const fadeCardsOut = () => {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-            card.classList.remove('fade-in');
-            card.classList.add('fade-out');
-        });
-    }
-
-    const fadeCardsIn = () => {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card) => {
-            card.classList.remove('fade-out');
-            card.classList.add('fade-in');
-        });
     }
 
     function getPageContent() {
@@ -103,7 +115,7 @@ export default function App() {
 
     return (
         <>
-            <div className="content-body">
+            <div className="content-body" ref={bodyRef}>
                 <UnitContext.Provider value={unit}>
                     <div className={'header-sizer ' + (!weather ? 'no-weather' : '')}>
                         <Header

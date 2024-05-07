@@ -18,25 +18,19 @@ export default function FutureForecast({ weather }: FutureForecastProps) {
     useGSAP(() => {
         if (dayIndex === drawDayIndex) return;
         const tl = gsap.timeline();
-        tl.fromTo(elementRef.current, {
-            x: 0
-        }, {
-            duration: .3,
+        tl.to(elementRef.current, {
+            duration: .15,
             opacity: 0,
             ease: 'power2.out',
-            x: dayIndex < drawDayIndex ? 50 : -50,
             onComplete: () => {
                 setDrawDayIndex(dayIndex);
             }
         })
-        .fromTo(elementRef.current, {
-            x: dayIndex < drawDayIndex ? -50 : 50
-        }, {
-            x: 0,
-            duration: .3,
+        .to(elementRef.current, {
+            duration: .15,
             opacity: 1,
             ease: 'power2.out'
-        }, '+=.1');
+        }, '+=.07');
     }, {
         dependencies: [dayIndex],
         scope: elementRef.current
