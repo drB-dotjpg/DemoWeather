@@ -42,7 +42,25 @@ export default function Background({ weatherDesc }: BackgroundProps) {
     });
 
     return (
-        <div className='background' ref={background}></div>
+        <div className='background' ref={background}>
+            <svg width="0" height="0">
+                <filter id="filter-back">
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="6" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="200" />
+                </filter>
+                <filter id="filter-middle">
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="2" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="100" />
+                </filter>
+                <filter id="filter-front">
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="2" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="60" />
+                </filter>
+            </svg>
+            <div className="clouds back"></div>
+            <div className="clouds middle"></div>
+            <div className="clouds front"></div>
+        </div>
     );
 }
 

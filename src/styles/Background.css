@@ -10,3 +10,29 @@
     filter: brightness(.85);
     z-index: -10;
 }   
+
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: .4;
+    background: url('/texture.png');
+    background-size: contain;
+}
+
+.clouds.back {
+    filter: url("#filter-back") blur(20px);
+    
+}
+
+.clouds.middle {
+    filter: brightness(.9) url("#filter-middle") blur(25px);
+    transform: translateY(40px) scaleY(.9);
+}
+
+.clouds.front {
+    filter: brightness(.8) url("#filter-front") blur(30px);
+    transform: translateY(80px) scaleY(.8);
+}
