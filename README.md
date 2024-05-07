@@ -1,3 +1,3 @@
 # DemoWeather
 
-Work in progress. Basic weather app built using React and Vite. Weather data pulled from https://wttr.in/.
+Basic weather app created as a means to learn react. Built using vite. Weather data from https://wttr.in/
