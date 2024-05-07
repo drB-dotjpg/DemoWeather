@@ -17,22 +17,23 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    opacity: .4;
     background: url('/texture.png');
-    background-size: contain;
+    background-repeat: repeat;
 }
 
 .clouds.back {
-    filter: url("#filter-back") blur(20px);
-    
+    filter: url("#filter-back") blur(15px);
+    opacity: .7;
 }
 
 .clouds.middle {
-    filter: brightness(.9) url("#filter-middle") blur(25px);
-    transform: translateY(40px) scaleY(.9);
+    filter: brightness(.8) url("#filter-middle") blur(18px);
+    transform: translateY(40px);
+    opacity: .5;
 }
 
 .clouds.front {
-    filter: brightness(.8) url("#filter-front") blur(30px);
-    transform: translateY(80px) scaleY(.8);
+    filter: brightness(.7) url("#filter-front") blur(25px);
+    transform: translateY(60px);
+    opacity: .2;
 }

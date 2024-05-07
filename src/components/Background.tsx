@@ -43,18 +43,18 @@ export default function Background({ weatherDesc }: BackgroundProps) {
 
     return (
         <div className='background' ref={background}>
-            <svg width="0" height="0">
+            <svg>
                 <filter id="filter-back">
-                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="6" seed="0" />
-                    <feDisplacementMap in="SourceGraphic" scale="200" />
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="5" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="400"  />
                 </filter>
                 <filter id="filter-middle">
-                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="2" seed="0" />
-                    <feDisplacementMap in="SourceGraphic" scale="100" />
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="3" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="400" />
                 </filter>
                 <filter id="filter-front">
-                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="2" seed="0" />
-                    <feDisplacementMap in="SourceGraphic" scale="60" />
+                    <feTurbulence type="fractalNoise" baseFrequency=".01" numOctaves="1" seed="0" />
+                    <feDisplacementMap in="SourceGraphic" scale="300" />
                 </filter>
             </svg>
             <div className="clouds back"></div>
