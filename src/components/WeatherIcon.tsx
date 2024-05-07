@@ -37,6 +37,7 @@ const iconLookup = {
     "thunder": () => <ThunderstormIcon fontSize='inherit' />,
     "storm": () => <ThunderstormIcon fontSize='inherit' />,
     "snow": () => <SnowIcon fontSize='inherit' />,
+    "blizzard": () => <SnowIcon fontSize='inherit' />,
     "rain": () => <WaterDropIcon fontSize='inherit' />,
     "drizzle": () => <WaterDropIcon fontSize='inherit' />,
     "mist": () => <FogIcon fontSize='inherit' />,
